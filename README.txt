@@ -1,0 +1,1 @@
+David City stores booking enquiries and contact messages in bookings.json and contacts.json when MySQL is not enabled. Keep this folder private; these files contain personal information. Do not publish them to a public repository or expose them through static hosting.

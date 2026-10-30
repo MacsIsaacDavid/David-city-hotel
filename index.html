@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="David City — compare demonstration hotel and apartment listings.">
+  <title>David City | Hotel & Apartment Comparison</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="David City home">
+      <span class="brand-icon" aria-hidden="true">⌂</span>
+      <span><strong>David City</strong><small>STAYS & RESERVATIONS</small></span>
+    </a>
+    <nav class="header-controls" aria-label="Site preferences">
+      <label class="sr-only" for="language">Language</label>
+      <select id="language" aria-label="Language"><option value="EN">EN · English</option><option value="FR">FR · Français</option></select>
+      <label class="sr-only" for="currency">Currency</label>
+      <select id="currency" aria-label="Currency"><option value="NGN">₦ NGN</option><option value="USD">$ USD</option><option value="GBP">£ GBP</option></select>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-photo" role="img" aria-label="Modern luxury hotel bedroom"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <span class="eyebrow">STAY COMFORTABLY</span>
+        <h1>Find your next stay in Lagos</h1>
+        <p>Compare hotels and apartments in one simple place.</p>
+        <span class="demo-pill">DEMO LISTINGS · NOT LIVE INVENTORY</span>
+      </div>
+      <form id="searchForm" class="search-panel">
+        <div class="field destination-field">
+          <label for="destination">Where do you want to stay?</label>
+          <div class="input-wrap"><span aria-hidden="true">⌕</span><input id="destination" name="destination" value="Lagos" placeholder="City, hotel or apartment"><button id="clearDestination" type="button" class="clear-btn" aria-label="Clear destination">×</button></div>
+        </div>
+        <div class="field">
+          <label for="checkin">Check-in</label>
+          <input id="checkin" name="checkin" type="date" required>
+        </div>
+        <div class="field">
+          <label for="checkout">Check-out</label>
+          <input id="checkout" name="checkout" type="date" required>
+        </div>
+        <div class="field search-action"><label class="invisible-label">Search</label><button class="primary-btn" type="submit">Search stays <span>→</span></button></div>
+      </form>
+    </section>
+
+    <section class="results-section" id="results">
+      <div class="results-top">
+        <div><p class="eyebrow blue">YOUR NEXT STAY</p><h2>Compare places to stay</h2><p id="resultSummary" class="muted">Explore our sample accommodation listings.</p></div>
+        <div class="sort-wrap"><label for="sortBy">Sort by</label><select id="sortBy"><option value="recommended">Recommended</option><option value="price-asc">Lowest price</option><option value="price-desc">Highest price</option><option value="rating-desc">Highest rating</option><option value="name-asc">Property name</option></select></div>
+      </div>
+
+      <div class="results-heading"><span>Property</span><span>Nightly rate <small>(NGN)</small></span></div>
+      <div id="unavailableNotice" class="notice"><span class="notice-icon">i</span><p>This property is no longer available on our site. Please see relevant options nearby below.</p><button id="dismissNotice" type="button" aria-label="Dismiss notice">×</button></div>
+
+      <div class="filters">
+        <div class="filter-title"><strong>Refine your search</strong><button id="resetFilters" type="button" class="text-btn">Reset</button></div>
+        <div class="filter-fields">
+          <label>Maximum nightly price <strong id="priceValue">₦600,000</strong><input id="maxPrice" type="range" min="50000" max="700000" step="10000" value="600000"></label>
+          <label>Minimum star rating<select id="minStars"><option value="0">Any rating</option><option value="3">3+ stars</option><option value="4">4+ stars</option><option value="5">5 stars</option></select></label>
+        </div>
+      </div>
+
+      <div id="loading" class="state-message" hidden><span class="spinner"></span>Finding stays…</div>
+      <div id="errorMessage" class="error-message" hidden></div>
+      <div id="propertyList" class="property-list" aria-live="polite"></div>
+      <div id="emptyState" class="empty-state" hidden><span>⌕</span><h3>No stays match those filters</h3><p>Try another destination or adjust your price and star filters.</p><button id="emptyReset" class="secondary-btn" type="button">Show all stays</button></div>
+    </section>
+
+    <section class="trust-strip"><div><span>✓</span><strong>Easy comparison</strong><small>See options side by side</small></div><div><span>⌖</span><strong>Explore locations</strong><small>Discover stays around Lagos</small></div><div><span>♡</span><strong>Clear information</strong><small>Demo prices are clearly marked</small></div></section>
+  </main>
+
+  <footer><a class="footer-brand" href="#">David City</a><span>Hotel and apartment comparison and enquiries</span><span>© <span id="year"></span> David City</span></footer>
+
+  <div id="modalBackdrop" class="modal-backdrop" hidden>
+    <section id="propertyModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" id="closeModal" aria-label="Close details">×</button>
+      <div id="modalContent"></div>
+    </section>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

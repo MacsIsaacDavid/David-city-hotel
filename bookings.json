@@ -1,0 +1,22 @@
+[
+  {
+    "reference": "DC-AF7A1A7BF0D7",
+    "status": "enquiry_received",
+    "paymentStatus": "not-paid",
+    "propertyId": 3,
+    "property": "The Lagos Continental Hotel",
+    "roomName": "Classic room",
+    "guestName": "Macs Isaac David Cuzy",
+    "email": "jaycuzy66@gmail.com",
+    "phone": "+2348136217095",
+    "checkIn": "2026-10-27",
+    "checkOut": "2026-10-28",
+    "guests": 2,
+    "nights": 1,
+    "totalPrice": 298000,
+    "currency": "NGN",
+    "createdAt": "2026-10-27T16:19:53.908Z",
+    "listingMode": "sample",
+    "message": "Your enquiry was saved. This sample listing has no verified room inventory, so no reservation is confirmed."
+  }
+]
